@@ -76,12 +76,3 @@ r= r_map(Π)
 plt.plot(Π, r)
 plt.show() 
 
-  
-"""
-r_f= ((1+β)/β) * (((1+g) * D)/(Y_s - (D/(1+g))))-1
-    i_star = (1+r_f)*(Π_star)
-    i,Π = sym.symbols('i,Π')
-    eq1 = sym.Eq((1+i_star) * (((Π/Π_star)**φ_π)*(i+1)) ,1)
-    eq2 = sym.Eq((1+i)/((1+r)*(Π)),1)
-    result = sym.solve([eq1,eq2],(i,Π))
-"""
