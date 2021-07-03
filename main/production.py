@@ -171,8 +171,3 @@ plt.show()
 
 
 
-"""
-def aggregates_n(Π):
-    Y_n = ((1-(γ/Π))/(1-γ))**(α/(1-α))
-    return Y_n
-"""
