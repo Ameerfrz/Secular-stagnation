@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import policy as pol
 import production as pro
+import Government as gov
 
 β= .985
 γ= .790
