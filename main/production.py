@@ -17,6 +17,9 @@ import policy as pol
 D = 0.28  
 g = 0.25
 l_bar = 1
+B_g = 0
+#change B_g to 0.1 if you wanna add fiscal policy
+
 
 def wage(Π):
     '''
@@ -126,9 +129,9 @@ def aggregates_d(Π):
     i_star = (1+r_f)*(Π_star)-1
     i=pol.interest(Π)
     if i>0:
-        Y_d = D + ((1+β) * (1+g) * D * (1+i_star)**(-1) * (Π_star)**φ_π)/(β * (Π)**φ_π )
+        Y_d = D + ((1+β) * B_g )/(β) + ((1+β) * (1+g) * D * (1+i_star)**(-1) * (Π_star)**φ_π)/(β * (Π)**φ_π )
     else:
-        Y_d = D + ((1+β) * (1+g) * D * (Π))/(β)
+        Y_d = D + ((1+β) * B_g )/(β) + ((1+β) * (1+g) * D * (Π))/(β)
     return Y_d
 
 
