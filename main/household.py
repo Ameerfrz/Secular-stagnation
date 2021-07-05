@@ -57,7 +57,7 @@ def consumption(Π):
     Π    = Inflation
     
     OTHER FUNCTIONS AND FILES CALLED BY THIS FUNCTION: real interest rate, wage
-    labor, profit, saving
+    labor, profit, saving , tax
         
     OBJECTS CREATED WITHIN FUNCTION:
     c_y    = young generation consumption
@@ -70,14 +70,15 @@ def consumption(Π):
     RETURNS: cvec
     --------------------------------------------------------------------
     '''
+    tvec = gov.tax(Π)
     bvec = saving(Π)
     r= pol.real_interest(Π)
     w= pro.wage(Π)
     L = pro.labor(Π)
     z = pro.profit(Π)
-    c_y = bvec[0]
-    c_m = w * L - (1+r) * bvec[0]+ z +  bvec[1]
-    c_o = - (1 + r) * bvec[1] 
+    c_y = bvec[0] - tvec[0]
+    c_m = w * L - (1+r) * bvec[0]+ z +  bvec[1] - tvec[1]
+    c_o = - (1 + r) * bvec[1] - tvec[2]
     cvec= np.array([c_y,c_m,c_o])
     return cvec
 
