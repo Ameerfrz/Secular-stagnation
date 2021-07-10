@@ -50,7 +50,7 @@ def brute():
     increment = 0.0005
     i=0.8
     while i<=1.4:
-        if abs(excess(i)) < 0.001:
+        if excess(i) * excess(i+increment)  < 0:
             root = i
             roots.append(root)
             i+= increment
