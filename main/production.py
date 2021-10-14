@@ -164,8 +164,6 @@ error_m = np.vectorize(aggregates_s)
 Π = np.arange(0.80, 1.20, 0.005)
 r= error_m(Π)
 plt.plot(r, Π)
-plt.show() 
-
 error_m = np.vectorize(aggregates_d)
 Π = np.arange(0.80, 1.20, 0.005)
 r= error_m(Π)
@@ -173,4 +171,23 @@ plt.plot(r, Π)
 plt.show() 
 
 
+def l_s (r):
+    Π= 1/(1+r)
+    Y_s= aggregates_s(Π)
+    return (β/(β+1))*(1.1-(D/(r)))
+
+def l_d (r):
+    return ((g+1)/(r))*(D)
+error_m = np.vectorize(l_s)
+r = np.arange(0.80, 1.20, 0.002)
+n= error_m(r)
+plt.plot(n, r, color="firebrick", label='Bond supply')
+error_m = np.vectorize(l_d)
+plt.title("Equilibrium in the bonds market")
+plt.xlabel('Bonds volume')
+plt.ylabel('Gross r*')
+n= error_m(r)
+plt.plot(n, r, color="royalblue", label='Bond demand')
+plt.legend()
+plt.show() 
 
